@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Provisional favicon traced from the brand board; replace with the official icon export. -->
+  <rect width="64" height="64" rx="14" fill="#101A36"/>
+  <g transform="translate(10 10) scale(0.06875) translate(-22 -30)">
+    <path fill="#FFFFFF" d="M52 30H310Q340 30 340 60V180Q340 215 375 220H405Q440 222 440 260V640Q440 670 410 670H242Q212 670 212 640V500Q212 470 242 470H365Q395 470 395 440V285Q395 252 362 250H52Q22 250 22 220V60Q22 30 52 30Z"/>
+    <path fill="#9895FF" d="M400 30H632Q662 30 662 60V225Q662 255 632 255H490Q460 255 460 225Q458 195 430 192H400Q370 192 370 162V60Q370 30 400 30Z"/>
+    <rect x="212" y="283" width="163" height="157" rx="26" fill="#D8F278"/>
+  </g>
+</svg>

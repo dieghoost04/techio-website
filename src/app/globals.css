@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Techio Solutions — design tokens
+   Source: Media/Techio Solutions Design System Poster.png (v1.0)
+   ------------------------------------------------------------------ */
+:root {
+  /* Brand palette */
+  --brand-navy: #101a36;
+  --brand-navy-soft: #1b2650;
+  --brand-lavender: #9895ff;
+  --brand-lavender-strong: #7f7bf5;
+  --brand-lavender-tint: #ecebff;
+  --brand-lime: #d8f278;
+  --brand-lime-tint: #f3fbd6;
+  --brand-teal: #5cb9a7;
+  --brand-teal-tint: #dff2ee;
+
+  /* Neutrals */
+  --surface-page: #f6f7fb;
+  --surface-card: #ffffff;
+  --border-subtle: #e5e7eb;
+  --border-strong: #cfd3dd;
+  --text-primary: #101a36;
+  --text-muted: #5b6478; /* ≥ 4.5:1 on #F6F7FB and white */
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #b9bfd3;
+
+  /* Feedback */
+  --state-error: #b42318;
+  --state-error-tint: #fef3f2;
+  --state-success: #157a5f;
+  --state-success-tint: #e6f5f0;
+
+  /* Radii — controlled, echoing the rounded blocks of the mark */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgb(16 26 54 / 0.06);
+  --shadow-md: 0 1px 2px rgb(16 26 54 / 0.04), 0 8px 24px -8px rgb(16 26 54 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(16 26 54 / 0.04), 0 24px 48px -16px rgb(16 26 54 / 0.18);
+
+  /* Layout */
+  --container-max: 1240px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --header-height: 4.5rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+
+  /* Focus ring (sections on dark backgrounds override this) */
+  --focus-ring: var(--brand-navy);
+}
+
+@theme inline {
+  --color-navy: var(--brand-navy);
+  --color-navy-soft: var(--brand-navy-soft);
+  --color-lavender: var(--brand-lavender);
+  --color-lavender-strong: var(--brand-lavender-strong);
+  --color-lavender-tint: var(--brand-lavender-tint);
+  --color-lime: var(--brand-lime);
+  --color-lime-tint: var(--brand-lime-tint);
+  --color-teal: var(--brand-teal);
+  --color-teal-tint: var(--brand-teal-tint);
+  --color-page: var(--surface-page);
+  --color-card: var(--surface-card);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text-primary);
+  --color-muted: var(--text-muted);
+  --color-on-dark: var(--text-on-dark);
+  --color-on-dark-muted: var(--text-on-dark-muted);
+  --color-error: var(--state-error);
+  --color-error-tint: var(--state-error-tint);
+  --color-success: var(--state-success);
+  --color-success-tint: var(--state-success-tint);
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --shadow-card: var(--shadow-md);
+  --shadow-raised: var(--shadow-lg);
+
+  --ease-brand: var(--ease-out);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+html {
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--brand-lime);
+  color: var(--brand-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+.on-dark {
+  --focus-ring: var(--brand-lime);
+}
+
+/* ------------------------------------------------------------------
+   Type scale (Sora headings / Inter body)
+   ------------------------------------------------------------------ */
+@utility text-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 1.4rem + 5.2vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+@utility text-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3.4vw, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+@utility text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 1.35rem + 2.2vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 650;
+}
+
+@utility text-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+@utility text-lead {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal — progressive enhancement, no JavaScript.
+   Content is fully visible where scroll-driven animations are
+   unsupported or the user prefers reduced motion.
+   ------------------------------------------------------------------ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* FAQ disclosure animation where supported */
+@supports (interpolate-size: allow-keywords) {
+  .faq-item {
+    interpolate-size: allow-keywords;
+  }
+  .faq-item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size var(--duration-base) var(--ease-out),
+      content-visibility var(--duration-base) allow-discrete;
+  }
+  .faq-item[open]::details-content {
+    block-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
